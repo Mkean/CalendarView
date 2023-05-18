@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/GregorianLunarCalendar.iml" filepath="$PROJECT_DIR$/.idea/GregorianLunarCalendar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GregorianLunarCalendar.iml" filepath="$PROJECT_DIR$/.idea/modules/GregorianLunarCalendar.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.iml" filepath="$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.main.iml" filepath="$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample/GregorianLunarCalendar.sample.iml" filepath="$PROJECT_DIR$/.idea/modules/sample/GregorianLunarCalendar.sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample/GregorianLunarCalendar.sample.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/sample/GregorianLunarCalendar.sample.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample/GregorianLunarCalendar.sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/sample/GregorianLunarCalendar.sample.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample/GregorianLunarCalendar.sample.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/sample/GregorianLunarCalendar.sample.unitTest.iml" />
     </modules>
   </component>
 </project>

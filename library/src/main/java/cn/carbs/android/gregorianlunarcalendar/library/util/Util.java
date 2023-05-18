@@ -1,8 +1,12 @@
 package cn.carbs.android.gregorianlunarcalendar.library.util;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import cn.carbs.android.gregorianlunarcalendar.library.data.ChineseCalendar;
 
@@ -237,5 +241,29 @@ public class Util {
     public static int convertMonthSwayToMonthLunarByYear(int monthSway, int year) {
         int monthLeap = getMonthLeapByYear(year);
         return convertMonthSwayToMonthLunar(monthSway, monthLeap);
+    }
+
+    public static Calendar isoToCalendar(String dateString) {
+        if (dateString == null) {
+            return null;
+        }
+        try {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(getIsoUTCFormat().parse(dateString));
+            return calendar;
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String dateToIso(Calendar date) {
+        return getIsoUTCFormat().format(date.getTime());
+    }
+
+    private static SimpleDateFormat getIsoUTCFormat() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        format.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return format;
     }
 }

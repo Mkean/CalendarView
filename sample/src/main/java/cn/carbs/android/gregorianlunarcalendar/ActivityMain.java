@@ -2,6 +2,7 @@ package cn.carbs.android.gregorianlunarcalendar;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 import cn.carbs.android.gregorianlunarcalendar.library.data.ChineseCalendar;
+import cn.carbs.android.gregorianlunarcalendar.library.util.Util;
 import cn.carbs.android.gregorianlunarcalendar.library.view.GregorianLunarCalendarView;
 import cn.carbs.android.indicatorview.library.IndicatorView;
 
@@ -24,12 +26,15 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
     private Button mButtonShowDialog;
     private DialogGLC mDialog;
 
+    private Calendar selectCalendar = Calendar.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mGLCView = (GregorianLunarCalendarView) this.findViewById(R.id.calendar_view);
-        mGLCView.init();//init has no scroll effection, to today
+//        mGLCView.init();//init has no scroll effection, to today
+        mGLCView.setRange(Util.isoToCalendar("2000-04-18 00:00:00"), Calendar.getInstance());
 
         /*Calendar customizedCalendar = Calendar.getInstance();
         customizedCalendar.set((2012), 11, 12);//eg. 2012-12-12
@@ -42,11 +47,15 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
         mButtonGetData.setOnClickListener(this);
         mButtonShowDialog = (Button) this.findViewById(R.id.button_in_dialog);
         mButtonShowDialog.setOnClickListener(this);
-        mChangedDate = (TextView)this.findViewById(R.id.tv_changed_date);
-        mGLCView.setOnDateChangedListener(new GregorianLunarCalendarView.OnDateChangedListener(){
+        mChangedDate = (TextView) this.findViewById(R.id.tv_changed_date);
+
+        findViewById(R.id.button_start_time).setOnClickListener(this);
+        findViewById(R.id.button_end_time).setOnClickListener(this);
+        mGLCView.setOnDateChangedListener(new GregorianLunarCalendarView.OnDateChangedListener() {
             @Override
             public void onDateChanged(GregorianLunarCalendarView.CalendarData calendarData) {
                 Calendar calendar = calendarData.getCalendar();
+                selectCalendar = calendar;
                 String showToast = "Gregorian : " + calendar.get(Calendar.YEAR) + "-"
                         + (calendar.get(Calendar.MONTH) + 1) + "-"
                         + calendar.get(Calendar.DAY_OF_MONTH) + "\n"
@@ -75,16 +84,25 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
             case R.id.button_in_dialog:
                 showInDialog();
                 break;
+            case R.id.button_start_time:
+                mGLCView.setRange(selectCalendar, Calendar.getInstance());
+                break;
+            case R.id.button_end_time:
+                Log.e("Main", "day: " + selectCalendar.get(Calendar.DATE));
+                mGLCView.setRange(Util.isoToCalendar("2000-01-01 00:00:00"), selectCalendar);
+                break;
+            default:
+                break;
         }
     }
 
-    private void showInDialog(){
-        if(mDialog == null){
+    private void showInDialog() {
+        if (mDialog == null) {
             mDialog = new DialogGLC(this);
         }
-        if(mDialog.isShowing()){
+        if (mDialog.isShowing()) {
             mDialog.dismiss();
-        }else {
+        } else {
             mDialog.setCancelable(true);
             mDialog.setCanceledOnTouchOutside(true);
             mDialog.show();
