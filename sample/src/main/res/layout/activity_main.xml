@@ -47,17 +47,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/button_start_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="起始时间" />
+        <Button
+            android:id="@+id/button_start_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:text="起始时间" />
 
-    <Button
-        android:id="@+id/button_end_time"
+        <Button
+            android:id="@+id/button_end_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:text="结束时间" />
+
+    <cn.carbs.android.gregorianlunarcalendar.library.NumberPickerView
+        android:id="@+id/picker_month1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="结束时间" />
+        android:layout_height="match_parent"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        app:npv_AlternativeTextArrayWithoutMeasureHint="@array/npv_lunar_month_without_measure_hint"
+        app:npv_HintText="@string/month"
+        app:npv_RespondChangeOnDetached="false"
+        app:npv_TextSizeHint="12dp" />
 </LinearLayout>

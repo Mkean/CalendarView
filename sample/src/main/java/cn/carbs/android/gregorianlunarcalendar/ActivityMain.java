@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import cn.carbs.android.gregorianlunarcalendar.library.NumberPickerView;
 import cn.carbs.android.gregorianlunarcalendar.library.data.ChineseCalendar;
 import cn.carbs.android.gregorianlunarcalendar.library.util.Util;
 import cn.carbs.android.gregorianlunarcalendar.library.view.GregorianLunarCalendarView;
@@ -28,17 +29,25 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
     private Calendar selectCalendar = Calendar.getInstance();
 
+    private NumberPickerView picker;
+
+    private String[] months = {"《水调歌头》", "明月几时有", "把酒问青天", "不知天上宫阙", "今夕是何年",
+            "我欲乘风归去", "又恐琼楼玉宇", "高处不胜寒", "起舞弄清影", "何似在人间", "转朱阁",
+            "低绮户", "照无眠", "不应有恨", "何事长向别时圆", "人有悲欢离合", "月有阴晴圆缺", "此事古难全", "但愿人长久", "千里共婵娟"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mGLCView = (GregorianLunarCalendarView) this.findViewById(R.id.calendar_view);
 //        mGLCView.init();//init has no scroll effection, to today
-        mGLCView.setRange(Util.isoToCalendar("2000-04-18 00:00:00"), Calendar.getInstance());
+//        mGLCView.setRange(Util.isoToCalendar("2023-04-18 00:00:00"), Calendar.getInstance());
 
         /*Calendar customizedCalendar = Calendar.getInstance();
         customizedCalendar.set((2012), 11, 12);//eg. 2012-12-12
         mGLCView.init(customizedCalendar);//to 2012-12-12*/
+
+        picker = (NumberPickerView) findViewById(R.id.picker_month1);
 
         mIndicatorView = (IndicatorView) this.findViewById(R.id.indicator_view);
         mIndicatorView.setOnIndicatorChangedListener(this);
@@ -48,6 +57,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
         mButtonShowDialog = (Button) this.findViewById(R.id.button_in_dialog);
         mButtonShowDialog.setOnClickListener(this);
         mChangedDate = (TextView) this.findViewById(R.id.tv_changed_date);
+
 
         findViewById(R.id.button_start_time).setOnClickListener(this);
         findViewById(R.id.button_end_time).setOnClickListener(this);
@@ -65,6 +75,12 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
                 mChangedDate.setText(showToast);
             }
         });
+
+        picker.setMinValue(2);
+        picker.setDisplayedValues(months);
+        picker.setMaxValue(5);
+        picker.setValue(5);
+
     }
 
     @Override
@@ -89,7 +105,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_end_time:
                 Log.e("Main", "day: " + selectCalendar.get(Calendar.DATE));
-                mGLCView.setRange(Util.isoToCalendar("2000-01-01 00:00:00"), selectCalendar);
+                mGLCView.setRange(Util.isoToCalendar("2023-04-16 00:00:00"), selectCalendar);
                 break;
             default:
                 break;
