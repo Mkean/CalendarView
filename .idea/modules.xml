@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GregorianLunarCalendar.iml" filepath="$PROJECT_DIR$/.idea/modules/GregorianLunarCalendar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/date_picker/GregorianLunarCalendar.date_picker.iml" filepath="$PROJECT_DIR$/.idea/modules/date_picker/GregorianLunarCalendar.date_picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/date_picker/GregorianLunarCalendar.date_picker.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/date_picker/GregorianLunarCalendar.date_picker.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/date_picker/GregorianLunarCalendar.date_picker.main.iml" filepath="$PROJECT_DIR$/.idea/modules/date_picker/GregorianLunarCalendar.date_picker.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/date_picker/GregorianLunarCalendar.date_picker.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/date_picker/GregorianLunarCalendar.date_picker.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.iml" filepath="$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.main.iml" filepath="$PROJECT_DIR$/.idea/modules/library/GregorianLunarCalendar.library.main.iml" />
